@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Python Console</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.10.5/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.10.5/brython_stdlib.min.js"></script>
+</head>
+
+<body onload="brython(1)">
+    <nav class="teal" role="navigation">
+        <div class="nav-wrapper container">
+            <!-- a id="logo-container" href="#" class="brand-logo">Logo</a -->
+            <div class="brand-logo center">Python Console</div>
+            
+            <!-- Top nav and side nav components here
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            
+            -->
+        </div>
+    </nav>
+    
+    <div>
+        <p></p>
+    </div>
+    
+    <div class="container">
+        <div id="console_area" class="row">
+            <textarea id="console" spellcheck="false" autocomplete="off" style="width:100%; height:100%; resize:none; font-size:16px; font-family:Consolas; background-color:#2e3436; color:#eeeeec; border:1px solid grey;"></textarea>
+        </div>
+    </div>
+    
+    <script type="text/python">
+    
+from browser import document, window
+from interpreter import Interpreter
+
+_height = int(document.documentElement.clientHeight - 120)
+document["console_area"].style.height = f"{_height}px"
+Interpreter("console")
+
+# Must do window.M.AutoInit() after all html being loaded!
+window.M.AutoInit()
+
+    </script>
+</body>
+</html>
